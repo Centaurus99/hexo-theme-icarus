@@ -3,6 +3,8 @@
         li
             ul
                 margin-right: 0
+        a
+            transition: background-color 0.3s ease-in-out
 
         .level
             margin-bottom: 0
@@ -19,12 +21,15 @@
 
     .tags
         .tag:first-child
-            background: $primary
-            color: $primary-invert
+            background: whitesmoke
+            color: #4a4a4a
 
         .tag:last-child
-            background: $light-grey
+            background: #e7e7e7
             color: $white-invert
+#toc
+    max-height: calc(100vh - 22px)
+    overflow-y: scroll
 
 .level.is-multiline
     flex-wrap: wrap

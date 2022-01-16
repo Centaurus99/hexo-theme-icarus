@@ -8,6 +8,8 @@ module.exports = class extends Component {
         const { config, page, helper } = this.props;
         const { url_for, __, date_xml, date } = helper;
 
+        page.posts && page.posts.filter(p => !p.thumbnail).forEach(p => p.thumbnail = '/img/thumbnail.svg');
+
         const language = page.lang || page.language || config.language;
 
         function renderArticleList(posts, year, month = null) {

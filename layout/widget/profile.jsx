@@ -31,7 +31,7 @@ class Profile extends Component {
         } = this.props;
         return <div class="card widget" data-type="profile">
             <div class="card-content">
-                <nav class="level">
+                <nav class="level" style="margin-bottom:1rem">
                     <div class="level-item has-text-centered flex-shrink-1">
                         <div>
                             <figure class="image is-128x128 mx-auto mb-2">
@@ -46,34 +46,34 @@ class Profile extends Component {
                         </div>
                     </div>
                 </nav>
-                <nav class="level is-mobile">
-                    <div class="level-item has-text-centered is-marginless">
+                <nav class="level menu-list is-mobile" style="margin-bottom:1rem">
+                    <a class="level-item has-text-centered is-marginless" href={counter.post.url}>
                         <div>
                             <p class="heading">{counter.post.title}</p>
-                            <a href={counter.post.url}>
+                            <div>
                                 <p class="title">{counter.post.count}</p>
-                            </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="level-item has-text-centered is-marginless">
+                    </a>
+                    <a class="level-item has-text-centered is-marginless" href={counter.category.url}>
                         <div>
                             <p class="heading">{counter.category.title}</p>
-                            <a href={counter.category.url}>
+                            <div>
                                 <p class="title">{counter.category.count}</p>
-                            </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="level-item has-text-centered is-marginless">
+                    </a>
+                    <a class="level-item has-text-centered is-marginless" href={counter.tag.url}>
                         <div>
                             <p class="heading">{counter.tag.title}</p>
-                            <a href={counter.tag.url}>
+                            <div>
                                 <p class="title">{counter.tag.count}</p>
-                            </a>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </nav>
                 {followLink ? <div class="level">
-                    <a class="level-item button is-primary is-rounded" href={followLink} target="_blank" rel="noopener">{followTitle}</a>
+                    <a class="level-item button is-primary is-rounded" href={followLink} target="_blank" rel="noopener"><i class="fab fa-github"></i>&nbsp;&nbsp;{followTitle}</a>
                 </div> : null}
                 {socialLinks ? this.renderSocialLinks(socialLinks) : null}
             </div>
@@ -97,7 +97,7 @@ Profile.Cacheable = cacheComponent(Profile, 'widget.profile', props => {
 
     function getAvatar() {
         if (gravatar) {
-            return gravatrHelper(gravatar, 128);
+            return gravatrHelper(gravatar, 96);
         }
         if (avatar) {
             return url_for(avatar);
@@ -134,17 +134,17 @@ Profile.Cacheable = cacheComponent(Profile, 'widget.profile', props => {
             post: {
                 count: postCount,
                 title: _p('common.post', postCount),
-                url: url_for('/archives')
+                url: url_for('/archives/')
             },
             category: {
                 count: categoryCount,
                 title: _p('common.category', categoryCount),
-                url: url_for('/categories')
+                url: url_for('/categories/')
             },
             tag: {
                 count: tagCount,
                 title: _p('common.tag', tagCount),
-                url: url_for('/tags')
+                url: url_for('/tags/')
             }
         },
         followLink: follow_link ? url_for(follow_link) : undefined,

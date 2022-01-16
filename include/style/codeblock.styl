@@ -3,12 +3,20 @@
  * --------------------------------- */
 $codeblock-caption-bg ?= rgba(200, 200, 200, .15)
 
+div.highlight-tree
+    td.code
+        pre
+            font-family: Consolas,Menlo,Courier,monospace !important
+            font-size: 0.9em
+
 figure.highlight
     padding: 0
     width: 100%
     position: relative
     margin: 1em 0 1em !important
     border-radius: $radius
+    span.fold
+        width 18px
 
     &.folded
         .highlight-body

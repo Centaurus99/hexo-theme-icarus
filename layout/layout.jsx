@@ -11,12 +11,14 @@ module.exports = class extends Component {
     render() {
         const { site, config, page, helper, body } = this.props;
 
+        site.posts && site.posts.filter(p => !p.thumbnail).forEach(p => p.thumbnail = '/img/thumbnail.svg');
+
         const language = page.lang || page.language || config.language;
         const columnCount = Widgets.getColumnCount(config.widgets, config, page);
 
         return <html lang={language ? language.substr(0, 2) : ''}>
             <Head site={site} config={config} helper={helper} page={page} />
-            <body class={`is-${columnCount}-column`}>
+            <body class={`is-3-column`}>
                 <Navbar config={config} helper={helper} page={page} />
                 <section class="section">
                     <div class="container">
@@ -26,7 +28,7 @@ module.exports = class extends Component {
                                 'order-2': true,
                                 'column-main': true,
                                 'is-12': columnCount === 1,
-                                'is-8-tablet is-8-desktop is-8-widescreen': columnCount === 2,
+                                'is-8-tablet is-8-desktop is-9-widescreen': columnCount === 2,
                                 'is-8-tablet is-8-desktop is-6-widescreen': columnCount === 3
                             })} dangerouslySetInnerHTML={{ __html: body }}></div>
                             <Widgets site={site} config={config} helper={helper} page={page} position={'left'} />
