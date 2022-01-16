@@ -11,14 +11,14 @@ module.exports = class extends Component {
     render() {
         const { site, config, page, helper, body } = this.props;
 
-        site.posts && site.posts.filter(p => !p.thumbnail).forEach(p => p.thumbnail = '/img/thumbnail.svg');
+        site.posts && site.posts.filter(p => !p.thumbnail).forEach(p => { p.thumbnail = '/img/thumbnail.svg'; });
 
         const language = page.lang || page.language || config.language;
         const columnCount = Widgets.getColumnCount(config.widgets, config, page);
 
         return <html lang={language ? language.substr(0, 2) : ''}>
             <Head site={site} config={config} helper={helper} page={page} />
-            <body class={`is-3-column`}>
+            <body class={'is-3-column'}>
                 <Navbar config={config} helper={helper} page={page} />
                 <section class="section">
                     <div class="container">

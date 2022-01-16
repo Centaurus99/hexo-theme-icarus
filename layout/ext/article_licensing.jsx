@@ -41,7 +41,7 @@ class ArticleLicensing extends Component {
             updatedAt,
             updatedTitle,
             licenses,
-            licensedTitle,
+            licensedTitle
         } = this.props;
         return (
             <div class="article-licensing box">
@@ -53,54 +53,54 @@ class ArticleLicensing extends Component {
                 </div>
                 <div class="licensing-meta level is-mobile">
                     <div class="level-left">
-                        {author ? (
-                            <div class="level-item is-narrow">
+                        {author
+                            ? <div class="level-item is-narrow">
                                 <div>
                                     <h6>{authorTitle}</h6>
                                     <p>{author}</p>
                                 </div>
                             </div>
-                        ) : null}
-                        {createdAt ? (
-                            <div class="level-item is-narrow">
+                            : null}
+                        {createdAt
+                            ? <div class="level-item is-narrow">
                                 <div>
                                     <h6>{createdTitle}</h6>
                                     <p>{createdAt}</p>
                                 </div>
                             </div>
-                        ) : null}
-                        {updatedAt ? (
-                            <div class="level-item is-narrow">
+                            : null}
+                        {updatedAt
+                            ? <div class="level-item is-narrow">
                                 <div>
                                     <h6>{updatedTitle}</h6>
                                     <p>{updatedAt}</p>
                                 </div>
                             </div>
-                        ) : null}
-                        {licenses && Object.keys(licenses).length ? (
-                            <div class="level-item is-narrow">
+                            : null}
+                        {licenses && Object.keys(licenses).length
+                            ? <div class="level-item is-narrow">
                                 <div>
                                     <h6>{licensedTitle}</h6>
                                     <p>
-                                        {Object.keys(licenses).map((name) => (
+                                        {Object.keys(licenses).map(name =>
                                             <a
                                                 rel="noopener"
                                                 target="_blank"
                                                 title={name}
                                                 class={licenses[name].icon && !Array.isArray(licenses[name].icon) ? 'icon' : ''}
                                                 href={licenses[name].url}>
-                                                {licenses[name].icon ? (
-                                                    Array.isArray(licenses[name].icon)?
-                                                        licenses[name].icon.map(i => [<i className={i}></i>, '\u00A0']):
-                                                        <i className={licenses[name].icon}></i>
-                                                ) : name}
+                                                {licenses[name].icon // eslint-disable-line no-nested-ternary
+                                                    ? Array.isArray(licenses[name].icon)
+                                                        ? licenses[name].icon.map(i => [<i className={i}></i>, '\u00A0'])
+                                                        : <i className={licenses[name].icon}></i>
+                                                    : name}
                                                 {licenses[name].text || ''}
                                             </a>
-                                        ))}
+                                        )}
                                     </p>
                                 </div>
                             </div>
-                        ) : null}
+                            : null}
                     </div>
                 </div>
             </div>
@@ -134,18 +134,18 @@ class ArticleLicensing extends Component {
  *         url_for: function() {...}
  *     }} />
  */
-ArticleLicensing.Cacheable = cacheComponent(ArticleLicensing, 'misc.articlelicensing', (props) => {
+ArticleLicensing.Cacheable = cacheComponent(ArticleLicensing, 'misc.articlelicensing', props => {
     const { config, page, helper } = props;
     const { licenses } = config.article || {};
 
     const links = {};
     if (licenses) {
-        Object.keys(licenses).forEach((name) => {
+        Object.keys(licenses).forEach(name => {
             const license = licenses[name];
             links[name] = {
                 url: helper.url_for(typeof license === 'string' ? license : license.url),
                 icon: license.icon,
-                text: license.text,
+                text: license.text
             };
         });
     }
@@ -163,7 +163,7 @@ ArticleLicensing.Cacheable = cacheComponent(ArticleLicensing, 'misc.articlelicen
         updatedAt: page.updated ? helper.date(page.updated) : null,
         updatedTitle: helper.__('article.licensing.updated_at'),
         licenses: links,
-        licensedTitle: helper.__('article.licensing.licensed_under'),
+        licensedTitle: helper.__('article.licensing.licensed_under')
     };
 });
 

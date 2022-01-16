@@ -45,11 +45,11 @@ module.exports = class extends Component {
                     {/* Metadata */}
                     {/* Title */}
                     <h1 className="title is-size-3 is-size-4-mobile has-text-weight-normal">
-                        {index ?
-                            <a className="has-link-black-ter" href={url_for(page.link || page.path)}>
+                        {index
+                            ? <a className="has-link-black-ter" href={url_for(page.link || page.path)}>
                                 <i className="fas fa-angle-double-right"></i>{page.title}
-                            </a> :
-                            [<i className="fas fa-angle-double-right"></i>, page.title]
+                            </a>
+                            : [<i className="fas fa-angle-double-right"></i>, page.title]
                         }
                     </h1>
                     {page.layout !== 'page' ? <div class="article-meta is-size-7 is-uppercase level is-mobile">
@@ -102,15 +102,15 @@ module.exports = class extends Component {
                         ? <ArticleLicensing.Cacheable page={page} config={config} helper={helper} /> : null}
                     <hr style="height:1px;margin:1rem 0"/>
                     <div className="level is-mobile is-flex">
-                    {/* Tags */}
-                    {page.tags && page.tags.length ? <div class="article-tags is-size-7 is-uppercase">
-                        <i class="fas fa-tags has-text-grey"></i>&nbsp;
-                        {page.tags.map((tag, index) => {
-                            return <a class="link-muted" rel="tag" href={url_for(tag.path)}>{tag.name}{index !== page.tags.length-1? ', ':''}</a>;
-                        })}
-                    </div> : null}
-                    {/* "Read more" button */}
-                    {index && page.excerpt ? <a class="article-more button is-small is-size-7" href={`${url_for(page.link || page.path)}#more`}><i class="fas fa-book-reader has-text-grey"></i>&nbsp;&nbsp;{__('article.more')}</a> : null}
+                        {/* Tags */}
+                        {page.tags && page.tags.length ? <div class="article-tags is-size-7 is-uppercase">
+                            <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                            {page.tags.map((tag, index) => {
+                                return <a class="link-muted" rel="tag" href={url_for(tag.path)}>{tag.name}{index !== page.tags.length - 1 ? ', ' : ''}</a>;
+                            })}
+                        </div> : null}
+                        {/* "Read more" button */}
+                        {index && page.excerpt ? <a class="article-more button is-small is-size-7" href={`${url_for(page.link || page.path)}#more`}><i class="fas fa-book-reader has-text-grey"></i>&nbsp;&nbsp;{__('article.more')}</a> : null}
                     </div>
                     {/* Share button */}
                     {!index ? <Share config={config} page={page} helper={helper} /> : null}
