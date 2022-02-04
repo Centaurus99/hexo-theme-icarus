@@ -111,11 +111,21 @@ article
             display: flex
             flex-wrap: wrap
         
-        .heimu
-            color: #7A7A7A
-            background-color: #7A7A7A
-            &:hover
-                color: #fff
+    .title a
+        background-image: linear-gradient(transparent calc(100% - 1px), $primary 1px)
+        background-repeat: no-repeat
+        background-size: 0 100%
+        transition: all .2s ease-in-out
+    
+    .title:hover a
+        color: $primary
+        background-size: 100% 100%
+    
+    .heimu
+        color: #7A7A7A
+        background-color: #7A7A7A
+        &:hover
+            color: #fff
 
 .rtl
     direction: rtl
@@ -214,16 +224,6 @@ a
             flex-shrink: 1
             word-wrap: break-word
             white-space: normal
-
-.has-link-black-ter {
-    transition: 0.2s ease;
-}
-.has-link-black-ter:hover {
-    color: #3273dc !important;
-}
-.has-link-black-ter {
-    color: #242424 !important;
-}
 
 .article {counter-reset:section}
 .article h2{counter-reset:sub-section}
