@@ -20,7 +20,6 @@ module.exports = class extends Component {
             <Head site={site} config={config} helper={helper} page={page} />
             <body class={`is-${columnCount}-column`}>
                 <script type="text/javascript" src="/js/imaegoo/night.js"></script>
-                <canvas id="universe"></canvas>
 
                 <Navbar config={config} helper={helper} page={page} />
                 <section class="section">
@@ -42,8 +41,6 @@ module.exports = class extends Component {
                 <Footer config={config} helper={helper} />
                 <Scripts site={site} config={config} helper={helper} page={page} />
                 <Search config={config} helper={helper} />
-
-                <script type="text/javascript" src="/js/imaegoo/universe.js"></script>
             </body>
         </html>;
     }
