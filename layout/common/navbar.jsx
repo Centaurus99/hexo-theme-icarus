@@ -87,8 +87,8 @@ module.exports = cacheComponent(Navbar, 'common.navbar', props => {
     const { url_for, _p, __ } = helper;
     const { logo, title, navbar, widgets, search } = config;
 
-    const logoLight = logo && (typeof(logo) === 'string' ? logo : logo.light)
-    const logoDark = logo && (typeof(logo) === 'string' ? logo : logo.dark)
+    const logoLight = logo && (typeof logo === 'string' ? logo : logo.light);
+    const logoDark = logo && (typeof logo === 'string' ? logo : logo.dark);
 
     const hasTocWidget = Array.isArray(widgets) && widgets.find(widget => widget.type === 'toc');
     const showToc = (config.toc === true || page.toc) && hasTocWidget && ['page', 'post'].includes(page.layout);
