@@ -1,5 +1,79 @@
+
+// Heimu: https://www.imaegoo.com/2020/icarus-with-bulma/#%E5%BD%A9%E8%89%B2%E7%AA%81%E5%87%BA
 .heimu
     color: #7A7A7A
     background-color: #7A7A7A
+
     &:hover
         color: #fff
+
+// imaegoo theme adaptation: https://github.com/imaegoo/hexo-theme-icarus/blob/imaegoo4/source/css/imaegoo.styl
+// Night mode toggle transition
+$transition_time ?= 0.2s
+
+.navbar-main, .card
+    transition: background-color $transition_time ease-out !important
+
+body, hr, .button, .tag, .level, .box, .vpanel, .vmeta span
+    transition: background-color $transition_time ease-out
+
+img, ul, .highlight, code, p, i
+    transition: $transition_time ease-out
+
+// Nav bar fixes
+.navbar-main
+    .navbar-menu
+        background-color: transparent
+
+        .navbar-item
+            &.is-active
+                color: inherit
+                font-weight: bold
+
+// Card fixes
+.card
+    overflow: visible
+    background-color: rgba(255, 255, 255, 0.95)
+
+    &:hover
+        background-color: rgba(255, 255, 255, 1)
+
+    &.card-transparent
+        background-color: transparent !important
+
+        .level-start, .level-end
+            overflow: hidden
+
+// Footer fixes
+.footer a:not(.button)
+    color: inherit
+
+    &:hover
+        text-decoration: underline
+
+article
+    .title a
+        background-image: linear-gradient(transparent calc(100% - 1px), $primary 1px)
+        background-repeat: no-repeat
+        background-size: 0 100%
+        transition: $transition_time ease-in-out !important
+
+    .title:hover a
+        color: $primary
+        background-size: 100% 100%
+
+// Waline fixes: https://waline.js.org/guide/client/style.html#%E6%8F%90%E4%BE%9B%E7%9A%84%E5%8F%98%E9%87%8F
+:root
+    --waline-theme-color: $primary !important
+    --waline-active-color: darken($primary, 5%) !important
+    --waline-badge-color: #27ae60 !important
+
+body.night
+    --waline-white: dark-font-color !important
+    --waline-theme-color: dark-primary-color !important
+    --waline-active-color: dark-primary-color-hover !important
+    --waline-bgcolor: rgba(40, 44, 52, 0.5) !important
+    --waline-bgcolor-light: rgba(40, 44, 52, 0.8) !important
+    --waline-border-color: dark-primary-color-hover !important
+    --waline-badge-color: dark-primary-color !important
+    --waline-border: 1px solid var(--waline-border-color) !important
