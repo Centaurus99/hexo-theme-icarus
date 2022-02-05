@@ -55,9 +55,9 @@
     }
 
     $('figure.highlight table').wrap('<div class="highlight-body">');
-    if (typeof config !== 'undefined' &&
-        typeof config.article !== 'undefined' &&
-        typeof config.article.highlight !== 'undefined') {
+    if (typeof config !== 'undefined'
+        && typeof config.article !== 'undefined'
+        && typeof config.article.highlight !== 'undefined') {
 
         $('figure.highlight').addClass('hljs');
         $('figure.highlight .code .line span').each(function() {
