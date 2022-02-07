@@ -6,7 +6,11 @@ code-light()
         .token
             all: unset
 
-        code, pre[class*=language-]
+        pre
+            code
+                all: unset
+
+        pre[class*=language-]
             all: unset
 
         .token.comment, .token.prolog, .token.cdata
@@ -112,7 +116,11 @@ code-night()
         .token
             all: unset
 
-        code, pre[class*=language-]
+        pre
+            code
+                all: unset
+
+        pre[class*=language-]
             all: unset
 
         .token.comment, .token.prolog, .token.cdata
