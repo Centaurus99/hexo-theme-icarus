@@ -9,9 +9,11 @@ code-light()
         pre
             code
                 all: unset
+                font-family: Consolas, Courier, Menlo, monospace, Ubuntu, Roboto
 
         pre[class*=language-]
             all: unset
+            font-family: Consolas, Courier, Menlo, monospace, Ubuntu, Roboto
 
         .token.comment, .token.prolog, .token.cdata
             color: hsl(230, 4%, 64%)
@@ -119,9 +121,11 @@ code-night()
         pre
             code
                 all: unset
+                font-family: Consolas, Courier, Menlo, monospace, Ubuntu, Roboto
 
         pre[class*=language-]
             all: unset
+            font-family: Consolas, Courier, Menlo, monospace, Ubuntu, Roboto
 
         .token.comment, .token.prolog, .token.cdata
             color: hsl(220, 10%, 40%)
@@ -220,7 +224,7 @@ code-night()
         .token.namespace
             opacity: 0.8
 
-body.light
+body:not(.night)
     code-light()
 
 body.night
