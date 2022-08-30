@@ -94,12 +94,12 @@ night()
         border-color: dark-primary-color-hover
 
     // comment
-    .v .vwrap,
-    .v .vwrap .vheader .vinput
+    [data-waline] .wl-wrap,
+    [data-waline] .wl-wrap .wl-header .wl-input
         border-color: dark-primary-color
-    .v .vwrap .vheader .vinput:focus
+    [data-waline] .wl-wrap .wl-header .wl-input:focus
         border-color: dark-primary-color-hover
-    .v .vbtn
+    [data-waline] .wl-btn
         color: dark-font-color
         background-color: dark-primary-color
         border-color: dark-primary-color
@@ -107,18 +107,18 @@ night()
             background-color: dark-primary-color-hover
         &:active
             background-color: dark-primary-color-active
-    .v .vlist .vcard .vhead .vsys
+    [data-waline] .wl-list .wl-card .wl-head .wl-sys
         background-color: dark-primary-color
-    .v a:hover,
-    .v .vlist .vcard .vh .vmeta .vat
+    [data-waline] a:hover,
+    [data-waline] .wl-list .wl-card .wl-h .wl-meta .wl-at
         color: #ffffff
-    .v .vlist .vcard .vcontent.expand:before
+    [data-waline] .wl-list .wl-card .wl-content.expand:before
         background: -webkit-gradient(linear,left top,left bottom,from(rgba(37,41,54,0)),to(rgba(37,41,54,1)))
         background: linear-gradient(180deg,rgba(37,41,54,0),rgba(37,41,54,1))
-    .v .vlist .vcard .vcontent.expand:after
+    [data-waline] .wl-list .wl-card .wl-content.expand:after
         background: rgba(37,41,54,1)
-    .v .vlist .vcard .vh,
-    .v .vlist .vcard .vquote
+    [data-waline] .wl-list .wl-card .wl-h,
+    [data-waline] .wl-list .wl-card .wl-quote
         border-color: dark-primary-color-hover
 
     // font color
@@ -145,7 +145,7 @@ night()
     .button.is-white,
     .button.is-transparent,
     .article-licensing,
-    .v *
+    [data-waline] *
         color: dark-font-color
     .media-content,
     .has-text-grey,

@@ -14,7 +14,7 @@ $transition_time ?= 0.2s
 .navbar-main, .card
     transition: background-color $transition_time ease-out !important
 
-body, hr, .button, .tag, .level, .box, .vpanel, .vmeta span
+body, hr, .button, .tag, .level, .box, .wl-panel, .wl-meta span, [data-waline] pre
     transition: background-color $transition_time ease-out
 
 img, ul, .highlight, code, p, i
@@ -89,7 +89,7 @@ body.night
     --waline-badge-color: dark-primary-color !important
     --waline-border: 1px solid var(--waline-border-color) !important
 
-.v[data-class=v]
+[data-waline]
     pre::-webkit-scrollbar-track
         background: rgba(0, 0, 0, 0.06) !important
         box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1) !important
